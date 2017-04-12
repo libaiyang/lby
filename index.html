@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>文沫会馆</title>
+		<link href="css/base.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
+	</head>
+	<body>
+		<!--
+        	作者：1192235026@qq.com
+        	时间：2017-04-11
+        	描述：nav开始
+        -->
+		<nav>
+			<div class="content">
+				<img src="img/logo.png">
+				<ul>
+					<li>
+						<div class="border-top"></div>
+						<a href="javascript:;">首页</a>
+						<div class="border-bottom"></div>
+					</li>
+					<li>·</li>
+					<li>
+						<div class="border-top"></div>
+						<a href="javascript:;">关于我们</a>
+						<div class="border-bottom"></div>
+					</li>
+					<li>·</li>
+					<li>
+						<div class="border-top"></div>
+						<a href="javascript:;">新闻中心</a>
+						<div class="border-bottom"></div>
+					</li>
+					<li>·</li>
+					<li>
+						<div class="border-top"></div>
+						<a href="javascript:;">产品展示</a>
+						<div class="border-bottom"></div>
+					</li>
+					<li>·</li>
+					<li>
+						<div class="border-top"></div>
+						<a href="javascript:;">在线留言</a>
+						<div class="border-bottom"></div>
+					</li>
+					<li>·</li>
+					<li>
+						<div class="border-top"></div>
+						<a href="javascript:;">招贤纳士</a>
+						<div class="border-bottom"></div>
+					</li>
+					<li>·</li>
+					<li>
+						<div class="border-top"></div>
+						<a href="javascript:;">联系我们</a>
+						<div class="border-bottom"></div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!--
+        	作者：1192235026@qq.com
+        	时间：2017-04-11
+        	描述：nav结束
+        -->
+        <!--
+        	作者：1192235026@qq.com
+        	时间：2017-04-11
+        	描述：main开始
+        -->
+        <div class="all" name="main" id="wrap">
+        	<ul>
+        		<li class="active">
+        			<div class="main1-content">
+	        			<div class="line_top"></div>
+	        			<span class="tu1">
+	        				<img src="img/main1-2.png">
+	        			</span>
+	        			<span class="tu2">
+	        				<img src="img/main1-3.png">
+	        			</span>
+	        			<div class="line_bottom"></div>
+	        		</div>
+	        		<span class="tu3">
+	        			<img src="img/main1-1.png">
+	        		</span>
+        		</li>
+        		<li>
+        			<div class="main1-content">
+	        			<div class="line_top"></div>
+	        			<span class="tu1">
+	        				<img src="img/main1-2.png">
+	        			</span>
+	        			<span class="tu2">
+	        				<img src="img/main1-3.png">
+	        			</span>
+	        			<div class="line_bottom"></div>
+	        		</div>
+        		</li>
+        		<li>
+        			<div class="main1-content">
+	        			<div class="line_top"></div>
+	        			<span class="tu1">
+	        				<img src="img/main1-2.png">
+	        			</span>
+	        			<span class="tu2">
+	        				<img src="img/main1-3.png">
+	        			</span>
+	        			<div class="line_bottom"></div>
+	        		</div>
+        		</li>
+        		<li>
+        			<div class="main1-content">
+	        			<div class="line_top"></div>
+	        			<span class="tu1">
+	        				<img src="img/main1-2.png">
+	        			</span>
+	        			<span class="tu2">
+	        				<img src="img/main1-3.png">
+	        			</span>
+	        			<div class="line_bottom"></div>
+	        		</div>
+        		</li>
+        		<li>
+        			<div class="main1-content">
+	        			<div class="line_top"></div>
+	        			<span class="tu1">
+	        				<img src="img/main1-2.png">
+	        			</span>
+	        			<span class="tu2">
+	        				<img src="img/main1-3.png">
+	        			</span>
+	        			<div class="line_bottom"></div>
+	        		</div>
+        		</li>
+        	</ul>
+        </div>
+        <!--
+        	作者：1192235026@qq.com
+        	时间：2017-04-11
+        	描述：main结束
+        -->
+	</body>
+	<script type="text/javascript">
+			//判断是否为火狐浏览器
+			var isFirefox = typeof document.body.style.MozUserSelect != 'undefined',
+				now = 0,
+				active = true,
+				wrap=document.getElementById("wrap")
+				all = wrap.getElementsByTagName('ul')[0],
+				obj = all.getElementsByTagName('li'),
+				//cri = document.getElementsByClassName('two')[0];
+			//绑定滚轮事件和点击事件
+			window.addEventListener(isFirefox ? 'DOMMouseScroll' : "mousewheel", fn, false);
+			//cri.addEventListener('click',fn2,false);
+			function fn(e) {//滚轮触发函数
+				e = e || event;
+				a = e.wheelDelta ? e.wheelDelta / 120 : -(e.detail % 3 == 0 ? e.detail / 3 : e.detail);
+				if (active) {
+					active = false;
+					setTimeout(one, 1000);
+					two(a);
+				}
+			}
+
+			function one() {//滚轮开关
+				active = true;
+			}
+
+			function two(a) { //加载触发函数
+				now += a;
+				if (now < -4) {
+					now = -4;
+				} else if (now > 0) {
+					now = 0;
+				}
+				all.style.top = (now * 100) + "vh";
+				var now1 = Math.abs(now);
+				for (var i = 0, len = obj.length; i <= len - 1; i++) {
+					if (i == now1) {
+						obj[i].className = "active";
+					} else {
+						obj[i].className = "ac";
+					}
+				}
+			}
+			two(0);
+			//cri.addEventListener('click', fn2, false);
+
+			function fn2(e) {
+				var num = e.target, 
+					str = num.getAttribute('date-url');
+				now = parseInt(str);
+				two(0);//初始化
+			}
+		</script>
+</html>
